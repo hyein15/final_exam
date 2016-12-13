@@ -1,6 +1,7 @@
 package com.example.sm.problem2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     MyBaseAdapter adapter;
     ListView listview;
+    private ArrayList<Employee> emp_list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // need something here
 
+
+      
         adapter = new MyBaseAdapter(this, emp_list);
         listview = (ListView) findViewById(R.id.listView1) ;
         listview.setAdapter(adapter);
@@ -29,33 +34,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText edit_age = (EditText) findViewById(R.id.edit_age);
         EditText edit_salary = (EditText) findViewById(R.id.edit_salary);
 
-        Employee employee;
+        Employee employee = null;
 
         switch (v.getId()){
             case R.id.btn_inc:
-                // need something here
+                employee.increase();
+
                 break;
 
             case R.id.btn_dec:
-                // need something here
+
+                employee.decrease();
                 break;
 
             case R.id.btn_store:
-                // need something here
+                Editable name = edit_name.getText();
+                adapter.add(name);
                 break;
 
             case R.id.btn_modify:
-                // need something here
+
+                Editable age = edit_age.getText();
+
                 break;
 
             case R.id.btn_delete:
-                // need something here
+                Editable salary = edit_salary.getText();
+                adapter.delete(salary);
                 break;
         }
     }
+
+
 }
 
-interface Payment {
+interface Payment{
     void increase();
     void decrease();
 }

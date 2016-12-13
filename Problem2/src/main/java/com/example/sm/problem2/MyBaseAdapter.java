@@ -1,13 +1,14 @@
 package com.example.sm.problem2;
 
 import android.content.Context;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
@@ -54,12 +55,12 @@ public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClic
         return position;
     }
 
-    public void add(Employee employee){
-        mData.add(employee);
+    public void add(Editable employee){
+        mData.add((Employee) employee);
         notifyDataSetChanged();
     }
 
-    public void delete(int index){
+    public void delete(Editable index){
         mData.remove(index);
         notifyDataSetChanged();
     }
@@ -67,5 +68,10 @@ public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClic
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // need something here
+
+
+        return convertView;
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.igx.problem1;
 
+import android.app.IntentService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         btn_getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text_selectedType.setText("LOCATION");
+
 
             }
         });
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         btn_getSensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text_selectedType.setText("SENSORS");
 
             }
         });
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         btn_sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final String textServicesManagerService = IntentService.TEXT_SERVICES_MANAGER_SERVICE;
+
 
             }
         });
